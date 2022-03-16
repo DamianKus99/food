@@ -1,0 +1,13 @@
+@use "../../mixins";
+
+.menu{
+  overflow-x: hidden;
+  @include mixins.maxWidth();
+}
+
+.nav{
+  grid-column: 1/3;
+  grid-row: 1/2;
+  padding: 2rem;
+  width: 100%;
+}

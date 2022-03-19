@@ -48,7 +48,7 @@ const Cart = (props) => {
 
   const submitOrderHandler = async (userData) => {
     setIsSubmitting(true);
-    await fetch('http://localhost:8080/api/order', {
+    await fetch('https://pr-2022-api.herokuapp.com/api/order', {
       method: 'POST',
       headers: new Headers({'Content-Type': 'application/json'}),
       body: JSON.stringify({

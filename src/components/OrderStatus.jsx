@@ -11,7 +11,7 @@ export const OrderStatus = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       const response = await fetch(
-        'http://localhost:8080/api/order/ordered'
+        'https://pr-2022-api.herokuapp.com/api/order/ordered'
       );
 
       if (!response.ok) {

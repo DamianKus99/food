@@ -12,7 +12,7 @@ const AvailableMeals = () => {
   useEffect(() => {
     const fetchMeals = async () => {
       const response = await fetch(
-        'http://localhost:8080/api/food'
+        'https://pr-2022-api.herokuapp.com/api/food'
       );
 
       if (!response.ok) {

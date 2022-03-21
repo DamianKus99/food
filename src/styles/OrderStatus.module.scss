@@ -15,8 +15,9 @@
 .orders {
     padding: 20px 20px 10px 10px;
     width: 280px;
-    margin: 0 auto;
+    margin: 0rem 1rem 2rem 1rem;
     height: 330px;
+    float: left;
     overflow: hidden;
     border-radius: 5px;
     background-color: #202020;
@@ -34,34 +35,24 @@
   height: 35px;
   padding-left: 1rem;
   display: flex;
-  justify-content: left;
-  color: whitesmoke;
+  justify-content: center;
   text-align: center;
-  //background: blue;
 }
 
-.orderNumber{
-  padding-left: 1rem;
+.orderID{
+  color: #802bb1;
 }
 
 .description{
   height: 300px;
 }
 
-.description h2{
-  //background: cyan;
-  color: whitesmoke;
-  display: block;
-  height: 30px;
-  padding-left: 1rem;
-}
-.description p {
-    height: 270px;
-    display: block;
-    //background: green;
+font{
+  color: #802bb1;
 }
 
-.platform {
-    width: 20px;
-    margin-right: 10px;
+.description p {
+    font-size: 1rem;
+    text-align: left;
+    display: block;
 }

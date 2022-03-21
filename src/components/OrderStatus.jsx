@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { React} from 'react';
+import { React } from 'react';
 import styles from "../styles/OrderStatus.module.scss";
 import Navbar from "./Navbar";
 import axios from 'axios';
@@ -23,7 +23,7 @@ export const OrderStatus = () => {
       const loadedOrders = [];
 
       console.log(responseData);
-      
+
       for (const key in responseData) {
         loadedOrders.push({
           id: responseData[key].orderMasterId,
@@ -35,28 +35,28 @@ export const OrderStatus = () => {
       setOrders(loadedOrders);
       //setMeals(loadedMeals);
     };
-    fetchOrders().catch((error) => {});
-  }, [orders]); 
+    fetchOrders().catch((error) => { });
+  }, [orders]);
 
   const maping = () => {
-    return orders.map((item, index) => <div className={styles.orders} key={index}>
+    return orders.map((item, index) => 
+    <div className={styles.orders} key={index}>
       <div className={styles.orderIDContainer}>
-          <p className={styles.orderID}>{item.id}</p>
-          <p className={styles.orderNumber}>{item.id2}</p>
-        </div>  
-        <div className={styles.description}>
-          {item.description.map((food,index2) => {return (<p key={index2}> {food.quantity}x {food.foodItem.name} </p> )} ) }
-        </div>
+        <p className={styles.orderID}>{item.id}</p>
+      </div>
+      <div className={styles.description}>
+        {item.description.map((food, index2) => { return (<p key={index2}> <font>{food.quantity}x</font> {food.foodItem.name} </p>) })}
+      </div>
     </div>);
   };
 
 
-  return (  
+  return (
     <div className={styles.kitchen}>
       <div className={styles.nav}>
-              <Navbar />
+        <Navbar />
       </div>
-     {maping()}
+      {maping()}
     </div>
   )
 }

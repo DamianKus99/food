@@ -1,0 +1,50 @@
+.venue-table-grid {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 85%;
+  width: 100%;
+  background: var(--color-btn);
+  margin: 10vh auto;
+  border-radius: 5px;
+  animation: loginSlide 1s ease-out forwards;
+}
+
+.venue-table {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: not-allowed;
+  width: 100px;
+  height: 85px;
+  margin: 1rem;
+  border: 2px solid black;
+  border-radius: 5px;
+  color: whitesmoke;
+  background-color: black;
+  box-shadow: 2px 2px 2px 2px #802bb1;
+}
+
+.unavailable {
+  opacity: 0.5;
+}
+
+#table-number {
+  font-weight: bold;
+}
+
+#covers {
+  font-size: small;
+}
+
+@keyframes loginSlide{
+  from {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

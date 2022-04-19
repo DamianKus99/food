@@ -1,0 +1,13 @@
+.main-container {
+  width: 100%;
+}
+
+.screen {
+  display: flex;
+  min-height: 95vh;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+}

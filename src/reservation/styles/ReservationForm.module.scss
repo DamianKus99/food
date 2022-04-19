@@ -1,0 +1,85 @@
+
+.reservationForm{
+  max-width: 700px;
+  width: 100%;
+  background: var(--color-btn);
+  padding: 25px 30px;
+  margin: 10vh auto;
+  border-radius: 5px;
+  animation: loginSlide 1s ease-out forwards;
+  width: 90%;
+}
+
+.title{
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+  &:before{
+      content: '';
+      position: absolute;
+      bottom: 0;
+      height: 3px;
+      width: 30px;
+      background: #802bb1;
+  }
+}
+
+
+label {
+  color: whitesmoke;
+}
+
+.tableForm, th, td{
+  margin-left: 10%;
+  padding: 5px;
+}
+
+th {
+  width: 50%;
+  text-align: center;
+}
+
+.inputForm, select {
+  font: inherit;
+  color: whitesmoke;
+  background: #802bb1;
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  border: 2px solid var(--color-text);
+  padding-left: 15px;
+  font-size: 16px;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+
+input[type="submit"] {
+  height: 100%;
+  width: 100%;
+  font-weight: bold;
+  letter-spacing: 1px;
+  outline: none;
+  background-color: black;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: #802bb1;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: black;
+    fill: black;
+  }
+}
+
+@keyframes loginSlide{
+  from {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

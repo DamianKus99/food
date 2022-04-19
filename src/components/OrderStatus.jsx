@@ -7,6 +7,7 @@ import axios from 'axios';
 
 export const OrderStatus = () => {
   const [orders, setOrders] = useState([]);
+  const [selectedAns, setSelectedAns] = useState("4px 3px 8px 0px rgba(111, 34, 50, 1)");
 
   useEffect(() => {
     const fetchOrders = async () => {
@@ -40,7 +41,7 @@ export const OrderStatus = () => {
 
   const maping = () => {
     return orders.map((item, index) => 
-    <div className={styles.orders} key={index}>
+    <div className={styles.orders} key={index} onClick={() => {setSelectedAns("4px 3px 8px 0px rgba(1, 156, 48 , 0.3)")}} style={{boxShadow: selectedAns}}>
       <div className={styles.orderIDContainer}>
         <p className={styles.orderID}>{item.id}</p>
       </div>

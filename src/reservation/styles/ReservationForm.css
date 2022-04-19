@@ -1,0 +1,74 @@
+.reservation-form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.customer-form,
+.new-reservation {
+  margin: 15px;
+}
+
+table, th, td {
+    border: 1px solid var(--dark);
+    border-collapse: collapse;
+}
+
+th, td, h2 {
+  padding: 5px;
+}
+
+th {
+  text-align: right;
+}
+
+input, select, button {
+    font-family: inherit;
+    font-size: 100%;
+    color: var(--dark);
+}
+
+input[type="submit"], button {
+    outline: none;
+    margin: 0 15px;
+    background-color: var(--contrast);
+    border: 1px solid var(--dark);
+    border-radius: 5px;
+    padding: 0 5px;
+}
+
+input[type="submit"]:hover, button:hover {
+  box-shadow: 1px 1px var(--shadow);
+}
+
+select {
+  width: 150px;
+}
+
+.btn-delete{
+  margin-top: 5px;
+  width: 60px;
+  color: white;
+  background-color: var(--danger);
+}
+
+.btn-delete:hover{
+  opacity: 0.6;
+  color: var(--contrast);
+  cursor: pointer;
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    padding: 25px;
+    background-color: white;
+    
+    border: 1px solid var(--dark);
+    border-radius: 10px;
+    
+    box-shadow: 2px 2px 2px 2px var(--shadow);
+    outline: none;
+}

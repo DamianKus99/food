@@ -7,7 +7,7 @@ class Customer extends Component {
   }
 
   deleteCustomer(id) {
-    const customerDeleteUrl = "http://localhost:8080/customers/";
+    const customerDeleteUrl = "https://pr-2022-api.herokuapp.com/customers/";
     return fetch(customerDeleteUrl + id, {
       method: "delete",
     })

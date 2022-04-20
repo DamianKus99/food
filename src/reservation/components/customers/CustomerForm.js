@@ -18,7 +18,7 @@ class CustomerForm extends Component {
   }
 
   addCustomer(customer) {
-    const url = "http://localhost:8080/customers";
+    const url = "https://pr-2022-api.herokuapp.com/customers";
     return fetch(url, {
       method: "POST",
       body: JSON.stringify(customer),

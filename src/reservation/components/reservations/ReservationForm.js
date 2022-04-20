@@ -99,7 +99,7 @@ class ReservationForm extends Component {
   }
 
   addReservation() {
-    const url = "http://localhost:8080/reservations";
+    const url = "https://pr-2022-api.herokuapp.com/reservations";
     const selectedCustomer = this.getCustomerById(
       parseInt(this.state.customer)
     );

@@ -9,7 +9,7 @@ class Reservation extends Component {
   }
 
   deleteReservation(id) {
-    const reservationDeleteUrl = "http://localhost:8080/reservations/";
+    const reservationDeleteUrl = "https://pr-2022-api.herokuapp.com/reservations/";
     return fetch(reservationDeleteUrl + id, {
       method: "delete",
     }).then((response) => response.json());

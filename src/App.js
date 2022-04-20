@@ -61,7 +61,6 @@ function App() {
 					</Route>
 					<Route path="/admin">
 						<AdminNavbar />
-						<Meals />
 						<Brands />
 					</Route>
 					<Route path="/reservation">

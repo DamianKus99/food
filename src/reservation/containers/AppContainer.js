@@ -18,19 +18,19 @@ class AppContainer extends Component {
   }
 
   fetchData() {
-    const customersUrl = "http://localhost:8080/customers";
+    const customersUrl = "https://pr-2022-api.herokuapp.com/customers";
     fetch(customersUrl)
       .then((res) => res.json())
       .then((data) => this.setState({ customers: data }))
       .catch((err) => console.error(err));
 
-    const venueTablesUrl = "http://localhost:8080/venue-tables";
+    const venueTablesUrl = "https://pr-2022-api.herokuapp.com/venue-tables";
     fetch(venueTablesUrl)
       .then((res) => res.json())
       .then((data) => this.setState({ venueTables: data }))
       .catch((err) => console.error(err));
 
-    const reservationsUrl = "http://localhost:8080/reservations";
+    const reservationsUrl = "https://pr-2022-api.herokuapp.com/reservations";
     fetch(reservationsUrl)
       .then((res) => res.json())
       .then((data) => this.setState({ reservations: data }))

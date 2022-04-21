@@ -38,10 +38,33 @@ export const OrderStatus = () => {
     };
     fetchOrders().catch((error) => { });
   }, [orders]);
+  const [myStyle, setMyStyle] = useState(false);
+  const handleClick = (id) => {
+    setMyStyle(prevState => ({
+      ...myStyle,
+      [id]: !prevState[id]
+    }))
+  }
 
   const maping = () => {
     return orders.map((item, index) => 
-    <div className={styles.orders} key={index} onClick={() => {setSelectedAns("4px 3px 8px 0px rgba(1, 156, 48 , 0.3)")}} style={{boxShadow: selectedAns}}>
+    <div className={styles.orders} key={index} style={{
+      boxShadow: myStyle[`${index}`] 
+        ? "4px 3px 8px 0px rgba(1, 156, 48, 0.3)" 
+        : "initial"
+
+    }}
+    onClick={() => {handleClick(index)
+      setTimeout(function() {
+        fetch('https://pr-2022-api.herokuapp.com/api/order/'+item.id, { method: 'DELETE' })
+   }, 5000);
+   maping()
+     
+    
+    }
+    
+    }
+  >
       <div className={styles.orderIDContainer}>
         <p className={styles.orderID}>{item.id}</p>
       </div>

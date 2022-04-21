@@ -68,7 +68,7 @@ class ReservationForm extends Component {
 
   handleCustomerSelect(event) {
     this.setState({
-      customer: event.target.value,
+      customer: 1,
     });
   }
 
@@ -76,6 +76,7 @@ class ReservationForm extends Component {
     this.setState({
       venueTable: event.target.value,
     });
+    this.handleCustomerSelect()
   }
 
   handleReservationNotesChange(event) {
@@ -278,7 +279,7 @@ class ReservationForm extends Component {
                   />
                 </td>
               </tr>
-
+{/* 
               <tr>
                 <th>
                   <label htmlFor="customer">Customer</label>
@@ -296,7 +297,7 @@ class ReservationForm extends Component {
                     {customerOptions}
                   </select>
                 </td>
-              </tr>
+              </tr> */}
 
               <tr>
                 <th>

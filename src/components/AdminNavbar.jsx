@@ -1,12 +1,8 @@
- import { useEffect, useState } from 'react';
- //import styles from "../styles/Navbar.module.scss";
- import { FaBars, FaTimes } from "react-icons/fa";
- import { Link } from "react-router-dom";
- import Navbar from "./Navbar";
- import React from 'react';
- import Popup from './Popup';
- import styles from "../styles/Popupstyle.scss"
-
+import React from 'react';
+import styles from "../styles/AdminNavbar.module.scss";
+import Navbar from "./Navbar";
+import Popup from './Popup';
+import { useEffect, useState } from 'react';
 
 export const AdminNavbar = () => {
   const [orders, setOrders] = useState([]);
@@ -17,7 +13,7 @@ export const AdminNavbar = () => {
 
   const [name2, setName2] = useState('')
   const [price2, setPrice2] = useState('')
- 
+
   const togglePopup = () => {
     setIsOpen(!isOpen);
   }
@@ -58,73 +54,86 @@ export const AdminNavbar = () => {
   }, [orders]);
 
   const maping = () => {
-    
-    return orders.map((item, index) => 
-    <div key={index}> 
+
+    return orders.map((item, index) =>
+      <div className={styles.meal} key={index}>
         <p>{item.id}</p>
         <p>{item.name}</p>
         <p>{item.description}</p>
-        <p>{item.price}<button onClick={() => {
-           fetch('https://pr-2022-api.herokuapp.com/api/food/'+item.id, { method: 'DELETE' })
-}
-        
-           
-
-        }>delete</button><a>  </a>
+        <p>{item.price}</p>
+        <button className={styles.deleteBtn} onClick={() => {
+          fetch('https://pr-2022-api.herokuapp.com/api/food/' + item.id, { method: 'DELETE' })
+        }}>
+          <span className={styles.adminSpan}>Delete</span>
+        </button>
         {isOpen && <Popup
-      content={<>
-        <input onChange={event => setName(event.target.value)}></input>
-        <a>    </a>
-        <input type="number" step="0.01" onChange={event => setPrice(event.target.value)}></input>
-        <button onClick={() => {
-           fetch('https://pr-2022-api.herokuapp.com/api/food/'+item.id+'?name='+name+'&price='+price, { method: 'PUT' })
-           maping();
-        }}>Change</button>
-      </>}
-      handleClose={togglePopup}
-    />}
-    </p>
-    </div>);
+          content={<>
+            <div className={styles.addEditInput}>
+
+
+              <input className={styles.adminInput} placeholder="Rename dish" onChange={event => setName(event.target.value)}></input>
+              <input className={styles.adminInput} type="number" step="0.01" placeholder="Set new price" onChange={event => setPrice(event.target.value)}></input>
+              <button className={styles.addEditBtn} onClick={() => {
+                fetch('https://pr-2022-api.herokuapp.com/api/food/' + item.id + '?name=' + name + '&price=' + price, { method: 'PUT' })
+                maping();
+              }}>
+                <span className={styles.adminSpan}>Change</span>
+              </button>
+            </div>
+          </>}
+          handleClose={togglePopup}
+        />}
+      </div>);
   };
 
 
   return (
-    <div>
-      <div>
+    <div className={styles.admin}>
+      <div className={styles.nav}>
         <Navbar />
       </div>
-      <button onClick={togglePopup}>edit</button>
-      <a>      </a>
-      <button onClick={togglePopup2}>add</button>
-      <div>
-      {isOpen2 && <Popup
-      content={<>
-        <input onChange={event => setName2(event.target.value)}></input>
-        <a>    </a>
-        <input type="number" step="0.01" onChange={event => setPrice2(event.target.value)}></input>
-        <button onClick={() => {
-           fetch('https://pr-2022-api.herokuapp.com/api/food/', { method: 'POST', 
-           headers: { 
-            'Accept': 'application/json',
-            'Content-Type': 'application/json' 
-        },
-          
-           body: JSON.stringify({
-            name: name2,
-            price: price2,
-            }),
-          })
-           maping();
-           console.log(JSON.stringify({
-            name: name2,
-            price: price2,
-            }))
-        }}>Add</button>
-      </>}
-      handleClose={togglePopup2}
-    />}
-    </div>
-      {maping()}
+      <div className={styles.adminNav}>
+        <button className={styles.btn} onClick={togglePopup}>
+          <span className={styles.adminSpan}>Edit</span>
+        </button>
+        <button className={styles.btn} onClick={togglePopup2}>
+          <span className={styles.adminSpan}>+</span>
+        </button>
+      </div>
+      <div className={styles.menu}>
+        <div className={styles.title}>Menu</div>
+        {isOpen2 && <Popup
+          content={<>
+            <div className={styles.addEditInput}>
+              <input className={styles.adminInput} placeholder="New dish" onChange={event => setName2(event.target.value)}></input>
+              <input className={styles.adminInput} type="number" step="0.01" placeholder="Price" onChange={event => setPrice2(event.target.value)}></input>
+              <button className={styles.addEditBtn} onClick={() => {
+                fetch('https://pr-2022-api.herokuapp.com/api/food/', {
+                  method: 'POST',
+                  headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                  },
+
+                  body: JSON.stringify({
+                    name: name2,
+                    price: price2,
+                  }),
+                })
+                maping();
+                console.log(JSON.stringify({
+                  name: name2,
+                  price: price2,
+                }))
+              }}>
+                <span className={styles.adminSpan}>Add</span>
+              </button>
+            </div>
+          </>}
+          handleClose={togglePopup2}
+        />}
+        {maping()}
+      </div>
     </div>
   )
 }

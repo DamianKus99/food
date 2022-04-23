@@ -23,10 +23,6 @@ export const Home = () => {
       <div className={styles.slogan}>
         <h1>{`This Is The Place To Name Your Restaurant`}</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-        <button className={styles.btn}>
-          <span>See More</span>
-          <BsArrowRight />
-        </button>
       </div>
     </div>
   )

@@ -62,15 +62,19 @@ form .userDetails .inputBox{
 }
 
 .userDetails .inputBox input{
+    background: #802bb1;
     height: 45px;
     width: 100%;
     outline: none;
     border-radius: 5px;
-    border: 2px solid var(--color-text);
+    border: 2px solid black;
     padding-left: 15px;
     font-size: 16px;
     border-bottom-width: 2px;
     transition: all 0.3s ease;
+    &::placeholder {
+        color: whitesmoke;
+    }
 }
 
 .userDetails .inputBox input:focus, .userDetails .inputBox input:valid{

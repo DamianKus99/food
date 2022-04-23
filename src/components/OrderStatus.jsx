@@ -57,9 +57,9 @@ export const OrderStatus = () => {
     onClick={() => {handleClick(index)
       setTimeout(function() {
         fetch('https://pr-2022-api.herokuapp.com/api/order/'+item.id, { method: 'DELETE' })
+        handleClick(index)
    }, 5000);
-   maping()
-     
+   //maping()
     
     }
     

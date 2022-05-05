@@ -23,7 +23,7 @@ export const OrderStatus = () => {
 
       const loadedOrders = [];
 
-      console.log(responseData);
+      
 
       for (const key in responseData) {
         loadedOrders.push({

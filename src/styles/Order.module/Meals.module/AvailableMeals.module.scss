@@ -21,6 +21,69 @@
   padding: 0;
 }
 
+.navTool{
+  background: var(--color-btn);
+  border-color: black;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+
+.btnTool {
+  height: 35px;
+  width: 14%;
+  margin: 24px 8px 8px 8px;
+  outline: none;
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 5px;
+  letter-spacing: 2px;
+  background: black;
+  color: whitesmoke;
+  transition: all 0.3s ease;
+
+  &:hover {
+      background: #802bb1;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      svg,
+      span {
+          color: black;
+          fill: black;
+      }
+  }
+}
+
+.navToolButtons{
+  width: 97%;
+  margin-left: 2rem;
+}
+
+.sortBy{
+  width: 90%;
+  margin: 8px 8px 24px 40px;
+}
+
+@media screen and (max-width: 768px){
+  .btnTool{
+    width: 93%;
+  }
+}
+
+@media (max-width: 584px) {
+
+  .btnTool{
+    width: 85%;
+  }
+
+  .sortBy{
+    width: 83%;
+  }
+}
+
+
 @keyframes mealsSlider {
   from {
     opacity: 0;

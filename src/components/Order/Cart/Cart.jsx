@@ -53,7 +53,7 @@ const Cart = (props) => {
       headers: new Headers({'Content-Type': 'application/json'}),
       body: JSON.stringify({
       orderNumber: 2,
-      customer: {customerId:6},
+      customer: {customerId:1},
       orderDetails: transformArray(cartCtx.items),
       pmethod: "karta",
 
@@ -61,7 +61,7 @@ const Cart = (props) => {
       }),
     });
     console.log(JSON.stringify({orderNumber: 2,
-      customer: {customerId:6},
+      customer: {customerId:1},
       orderDetails: transformArray(cartCtx.items),
       pmethod: "karta",}));
     setIsSubmitting(false);

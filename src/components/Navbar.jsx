@@ -4,9 +4,11 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import HeaderCartButton from "./Order/Layout/HeaderCartButton";
 import { Row, Col, Button } from "reactstrap";
+import { ReactSession }  from 'react-client-session';
 
 export const Navbar = (props) => {
     const [navOpen, setNavOpen] = useState(false);
+    const username = ReactSession.get("username");
 
   return (
       <nav className={styles.nav}>
@@ -24,10 +26,10 @@ export const Navbar = (props) => {
             <li><Link to="/" className={styles.link}>Home</Link></li>
             <li><Link to="/menu" className={styles.link}>Menu</Link></li>
             <li><Link to="/reservation" className={styles.link}>Reservation</Link></li>
-            <li><Link to="/login" className={styles.link}>Login</Link></li>
-            <li><Link to="/kitchen" className={styles.link}>Kitchen</Link></li>
-            <li><Link to="/admin" className={styles.link}>Admin</Link></li>
+            <li><Link to="/login" className={styles.link}>Login</Link></li>   
             <li><Link to="#" className={styles.link}><HeaderCartButton onClick={props.onShowCart} /></Link></li>
+            <li className={styles.link}>{username}</li>
+            <li className={styles.link} onClick={ ()=> {ReactSession.set("username",""); window.location.reload();} }> {ReactSession.get("username")? <p className={styles.link}>Wyloguj</p>: <p></p> }</li>
           </ul>
       </nav>
   )

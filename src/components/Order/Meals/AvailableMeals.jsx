@@ -20,7 +20,7 @@ const AvailableMeals = () => {
   useEffect(() => {
     const fetchMeals = async () => {
       const response = await fetch(
-        'https://pr-2022-api.herokuapp.com/api/food?'+type+'=true'
+        'https://pr-2022-api.herokuapp.com/api/food?' + type + '=true'
       );
 
       if (!response.ok) {
@@ -30,17 +30,18 @@ const AvailableMeals = () => {
       const responseData = await response.json();
 
       const loadedMeals = [];
-      
+
       for (const key in responseData) {
-        if(responseData[key].type==="dania-glowne"&&responseData[key].avaiable) {loadedMeals.push({
-          id: responseData[key].foodItemId,
-          id2: responseData[key].foodItemId,
-          name: responseData[key].name,
-          description: responseData[key].description,
-          type: responseData[key].type,
-          price: responseData[key].price,
-        });
-      }
+        if (responseData[key].type === "dania-glowne" && responseData[key].avaiable) {
+          loadedMeals.push({
+            id: responseData[key].foodItemId,
+            id2: responseData[key].foodItemId,
+            name: responseData[key].name,
+            description: responseData[key].description,
+            type: responseData[key].type,
+            price: responseData[key].price,
+          });
+        }
       }
       console.log(loadedMeals);
       setMeals(loadedMeals);
@@ -70,19 +71,19 @@ const AvailableMeals = () => {
     );
   }
 
-const pressed = (value) => {
+  const pressed = (value) => {
 
-  setIsOpened4(value);
-  console.log(value);
-  maping('name-asc',value);
-}
-
-
+    setIsOpened4(value);
+    console.log(value);
+    maping('name-asc', value);
+  }
 
 
-  const maping = async (value,value2) => {
+
+
+  const maping = async (value, value2) => {
     const response = await fetch(
-      'https://pr-2022-api.herokuapp.com/api/food?'+value+'=true'
+      'https://pr-2022-api.herokuapp.com/api/food?' + value + '=true'
     );
     console.log(response);
 
@@ -93,17 +94,18 @@ const pressed = (value) => {
     const responseData = await response.json();
 
     const loadedMeals = [];
-    
+
     for (const key in responseData) {
-      if(responseData[key].type===value2&&responseData[key].avaiable) {loadedMeals.push({
-        id: responseData[key].foodItemId,
-        id2: responseData[key].foodItemId,
-        name: responseData[key].name,
-        description: responseData[key].description,
-        type: responseData[key].type,
-        price: responseData[key].price,
-      });
-    }
+      if (responseData[key].type === value2 && responseData[key].avaiable) {
+        loadedMeals.push({
+          id: responseData[key].foodItemId,
+          id2: responseData[key].foodItemId,
+          name: responseData[key].name,
+          description: responseData[key].description,
+          type: responseData[key].type,
+          price: responseData[key].price,
+        });
+      }
     }
     console.log(loadedMeals);
     setMeals(loadedMeals);
@@ -113,7 +115,7 @@ const pressed = (value) => {
 
   const maping2 = async (value) => {
     const response = await fetch(
-      'https://pr-2022-api.herokuapp.com/api/food?'+value+'=true'
+      'https://pr-2022-api.herokuapp.com/api/food?' + value + '=true'
     );
     console.log(response);
 
@@ -124,17 +126,18 @@ const pressed = (value) => {
     const responseData = await response.json();
 
     const loadedMeals = [];
-    
+
     for (const key in responseData) {
-      if(responseData[key].type==="sniadanie"&&responseData[key].avaiable) {loadedMeals.push({
-        id: responseData[key].foodItemId,
-        id2: responseData[key].foodItemId,
-        name: responseData[key].name,
-        description: responseData[key].description,
-        type: responseData[key].type,
-        price: responseData[key].price,
-      });
-    }
+      if (responseData[key].type === "sniadanie" && responseData[key].avaiable) {
+        loadedMeals.push({
+          id: responseData[key].foodItemId,
+          id2: responseData[key].foodItemId,
+          name: responseData[key].name,
+          description: responseData[key].description,
+          type: responseData[key].type,
+          price: responseData[key].price,
+        });
+      }
     }
     console.log(loadedMeals);
     setMeals2(loadedMeals);
@@ -153,7 +156,7 @@ const pressed = (value) => {
   ));
   const mealsList2 = meals2.map((meal) => (
     <MealItem
-      key={meal.id} 
+      key={meal.id}
       id={meal.id}
       name={meal.name}
       //description={meal.description}
@@ -164,24 +167,31 @@ const pressed = (value) => {
 
   return (
     <section className={classes.meals}>
-    <button onClick={ () => {pressed('dania-glowne');}}>Dania główne</button>
-    <button onClick={ () => {pressed('sniadania');}}>Oferta śniadaniowa</button>
-    <button onClick={ () => {pressed('zupy');}}>Zupy</button>
-    <button onClick={ () => {pressed('napoje');}}>Napoje</button>
-    <button onClick={ () => {pressed('desery');}}>Desery</button>
-    <button onClick={ () => {pressed('salatki');}}>Sałatki</button>
-      <form>
-      <select 
-        onChange={(event) => {maping(event.target.value,isOpened4)
-      }
-  }
-      >    
-        <option value="name-asc">Name A↓Z</option>
-        <option value="name-desc">Name Z↑A</option>
-        <option value="price-asc">Price A↓Z</option>
-        <option value="price-desc">Price Z↑A</option>
-      </select>
-    </form>
+      <div className={classes.navTool}>
+        <div className={classes.navToolButtons}>
+          <button className={classes.btnTool} onClick={() => { pressed('dania-glowne'); }}>Main dishes</button>
+          <button className={classes.btnTool} onClick={() => { pressed('sniadania'); }}>Breakfasts</button>
+          <button className={classes.btnTool} onClick={() => { pressed('zupy'); }}>Soups</button>
+          <button className={classes.btnTool} onClick={() => { pressed('salatki'); }}>Salads</button>
+          <button className={classes.btnTool} onClick={() => { pressed('desery'); }}>Sweets</button>
+          <button className={classes.btnTool} onClick={() => { pressed('napoje'); }}>Drinks</button>
+        </div>
+        
+
+        <select
+          className={classes.sortBy}
+          onChange={(event) => {
+            maping(event.target.value, isOpened4)
+          }
+          }
+        >
+          <option value="name-asc">Sort by name A↓Z</option>
+          <option value="name-desc">Sort by name Z↑A</option>
+          <option value="price-asc">Sort by price A↓Z</option>
+          <option value="price-desc">Sort by price Z↑A</option>
+        </select>
+
+      </div>
       <Card>
         <ul>{mealsList}</ul>
       </Card>

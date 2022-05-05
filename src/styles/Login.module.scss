@@ -43,14 +43,14 @@
     }
 }
 
-.container form .userDetails{
+.container  .userDetails{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 20px 0 12px 0;
 }
 
-form .userDetails .inputBox{
+ .userDetails .inputBox{
     margin-bottom: 15px;
     width: calc(100% / 2 - 20px);
 }
@@ -81,12 +81,12 @@ form .userDetails .inputBox{
     border-color: black;
 }
 
-form .genderDetails .genderTitle{
+.genderDetails .genderTitle{
     font-size: 20px;
     font-weight: 500;
 }
 
-form .genderDetails .category{
+.genderDetails .category{
     display: flex;
     width: 80%;
     margin: 14px 0;
@@ -115,28 +115,28 @@ form .genderDetails .category{
     background: #802bb1;
 }
 
-form input[type="radio"]{
+ input[type="radio"]{
     display: none;
 }
 
-form .btn{
+ .btn{
     height: 45px;
     margin: 45px 0;
 }
 
-form .btn span{
+ .btn span{
     color: whitesmoke;
 }
 
-form p{
+ p{
     text-align: center;
 }
-form p .signup{
+ p .signup{
     color: #802bb1;
     font-weight: bold;
 }
 
-form .btn button{
+.btn button{
     height: 100%;
     width: 100%;
     outline: none;
@@ -164,12 +164,12 @@ form .btn button{
         max-width: 100%;
     }
 
-    form .userDetails .inputBox{
+     .userDetails .inputBox{
         margin-bottom: 15px;
         width: 98%;
     }
 
-    form .genderDetails .category{
+     .genderDetails .category{
         width: 100%;
     }
 

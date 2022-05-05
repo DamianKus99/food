@@ -28,7 +28,7 @@ export const AdminNavbar = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       const response = await fetch(
-        'http://localhost:8080/api/food/?name-asc=true'
+        'https://pr-2022-api.herokuapp.com/api/food/?name-asc=true'
       );
 
       if (!response.ok) {
@@ -60,87 +60,84 @@ export const AdminNavbar = () => {
 
 
 
-    const maping2 = async () => {
-      const response = await fetch(
-        'http://localhost:8080/api/food/?name-asc=true'
-      );
+  const maping2 = async () => {
+    const response = await fetch(
+      'https://pr-2022-api.herokuapp.com/api/food/?name-asc=true'
+    );
 
-      if (!response.ok) {
-        throw new Error('Something went wrong!');
-      }
-
-      const responseData = await response.json();
-
-      const loadedOrders = [];
-
-      //console.log(responseData);
-
-      for (const key in responseData) {
-        loadedOrders.push({
-          id: responseData[key].foodItemId,
-          name: responseData[key].name,
-          type: responseData[key].type,
-          price: responseData[key].price,
-          avaiable: responseData[key].avaiable,
-        });
-      }
-      //console.log(loadedOrders);
-      setOrders(loadedOrders);
-      //setMeals(loadedMeals);
-      //console.log(loadedOrders.avaible);
-      maping();
+    if (!response.ok) {
+      throw new Error('Something went wrong!');
     }
 
-  
+    const responseData = await response.json();
+
+    const loadedOrders = [];
+
+    //console.log(responseData);
+
+    for (const key in responseData) {
+      loadedOrders.push({
+        id: responseData[key].foodItemId,
+        name: responseData[key].name,
+        type: responseData[key].type,
+        price: responseData[key].price,
+        avaiable: responseData[key].avaiable,
+      });
+    }
+    //console.log(loadedOrders);
+    setOrders(loadedOrders);
+    //setMeals(loadedMeals);
+    //console.log(loadedOrders.avaible);
+    maping();
+  }
+
+
 
   const maping = () => {
 
     return orders.map((item, index) =>
       <div className={styles.meal} key={index}>
-        <p>{item.id}</p>
-        <p>{item.name}</p>
-        <p>{item.type}</p>
-        <p>{item.price}</p>
-        <p>{item.avaiable===true? "Available":"Not Available"}</p>
+        <table className={styles.adminTable}>
+          <tr className={styles.adminTR}>
+            <td className={styles.adminTD}><p>{item.id}</p></td>
+            <td className={styles.adminTD}><p>{item.type}</p></td>
+            <td className={styles.adminTD}><p>{item.price}</p></td>
+            <td className={styles.adminTD}><p>{item.avaiable === true ? "Available" : "Not Available"}</p></td>
+          </tr>
+        </table>
         <button className={styles.deleteBtn} onClick={() => {
-          fetch('http://localhost:8080/api/food/' + item.id, { method: 'DELETE' })
+          fetch('https://pr-2022-api.herokuapp.com/api/food/' + item.id, { method: 'DELETE' })
         }}>
           <span className={styles.adminSpan}>Delete</span>
         </button>
         {isOpen && <Popup
           content={<>
-            <div className={styles.addEditInput}>
-
-              <input className={styles.adminInput}  placeholder="Rename dish" onChange={event => {setName(event.target.value)}}></input>
+            <div className={styles.editInput}>
+              <input className={styles.adminInput} placeholder="Rename dish" onChange={event => { setName(event.target.value) }}></input>
               <input className={styles.adminInput} type="number" step="0.01" placeholder="Set new price" onChange={event => setPrice(event.target.value)}></input>
-              <p></p>
-              <select onChange= {event => setType(event.target.value) } defaultValue={'default'}> 
-              <option value="default" disabled>Wybierz typ...</option>
-              <option value="dania-glowne">Dania glowne</option>
-              <option value="sniadania">Oferta śniadaniowa</option>
-              <option value="zupy">Zupy</option>
-              <option value="napoje">Napoje</option>
-              <option value="desery">Desery</option>
-              <option value="salatki">Sałatki</option>
+              <select className={styles.adminInput} onChange={event => setType(event.target.value)} defaultValue={'default'}>
+                <option value="default" disabled>Choose category</option>
+                <option value="dania-glowne">Main dishes</option>
+                <option value="sniadania">Breakfasts</option>
+                <option value="zupy">Soups</option>
+                <option value="napoje">Drinks</option>
+                <option value="desery">Sweets</option>
+                <option value="salatki">Salads</option>
               </select>
 
-              
-
-  
               <button className={styles.addEditBtn} onClick={() => {
-                fetch('http://localhost:8080/api/food/' + item.id + '?name=' + name + '&price=' + price + '&type=' + type , { method: 'PUT' });
-                
+                fetch('https://pr-2022-api.herokuapp.com/api/food/' + item.id + '?name=' + name + '&price=' + price + '&type=' + type, { method: 'PUT' });
+
               }}>
                 <span className={styles.adminSpan}>Change</span>
               </button>
               <button className={styles.addEditBtn} onClick={() => {
-                fetch('http://localhost:8080/api/food/' + item.id + '?yes=ojtaktak' , { method: 'PUT' });
-                
+                fetch('https://pr-2022-api.herokuapp.com/api/food/' + item.id + '?yes=ojtaktak', { method: 'PUT' });
+
               }}>
                 <span className={styles.adminSpan}>Change availability</span>
               </button>
 
-             
             </div>
           </>}
           handleClose={togglePopup}
@@ -164,22 +161,31 @@ export const AdminNavbar = () => {
       </div>
       <div className={styles.menu}>
         <div className={styles.title}>Menu</div>
+        <table>
+        <th>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Type</td>
+            <td>Price</td>
+            <td>Availability</td>
+          </th>
+        </table>
         {isOpen2 && <Popup
           content={<>
             <div className={styles.addEditInput}>
               <input className={styles.adminInput} placeholder="New dish" onChange={event => setName2(event.target.value)}></input>
               <input className={styles.adminInput} type="number" step="0.01" placeholder="Price" onChange={event => setPrice2(event.target.value)}></input>
-              <select onChange= {event => setType2(event.target.value)}>
-              <option value="dania-glowne">Dania glowne</option>
-              <option value="sniadania">Oferta śniadaniowa</option>
-              <option value="zupy">Zupy</option>
-              <option value="napoje">Napoje</option>
-              <option value="desery">Desery</option>
-              <option value="salatki">Sałatki</option>
+              <select className={styles.adminInput} onChange={event => setType2(event.target.value)}>
+                <option value="dania-glowne">Main dishes</option>
+                <option value="sniadania">Breakfasts</option>
+                <option value="zupy">Soups</option>
+                <option value="salatki">Salads</option>
+                <option value="desery">Sweets</option>
+                <option value="napoje">Drinks</option>
 
               </select>
               <button className={styles.addEditBtn} onClick={() => {
-                fetch('http://localhost:8080/api/food/', {
+                fetch('https://pr-2022-api.herokuapp.com/api/food/', {
                   method: 'POST',
                   headers: {
                     'Accept': 'application/json',

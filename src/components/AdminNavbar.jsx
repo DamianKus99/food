@@ -100,6 +100,7 @@ export const AdminNavbar = () => {
         <table className={styles.adminTable}>
           <tr className={styles.adminTR}>
             <td className={styles.adminTD}><p>{item.id}</p></td>
+            <td className={styles.adminTD}><p>{item.name}</p></td>
             <td className={styles.adminTD}><p>{item.type}</p></td>
             <td className={styles.adminTD}><p>{item.price}</p></td>
             <td className={styles.adminTD}><p>{item.avaiable === true ? "Available" : "Not Available"}</p></td>

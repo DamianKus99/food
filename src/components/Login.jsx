@@ -34,16 +34,16 @@ export const Login = () => {
             <Navbar />
         </div> 
         <div className={styles.container}>
-            <div className={styles.title}>Login</div>
+            <div className={styles.title}>Logowanie</div>
             
                 <div className={styles.userDetails}>
                     <div className={styles.inputBox}>
                         <span className={styles.details}>Email</span>
-                        <input type="email" placeholder="Enter your email" required onChange={event => setEmail(event.target.value)}/>
+                        <input type="email" placeholder="Wpisz swój email" required onChange={event => setEmail(event.target.value)}/>
                     </div>
                     <div className={styles.inputBox}>
-                        <span className={styles.details}>Password</span>
-                        <input type="password" placeholder="Enter your password" required onChange={event => setPassword(event.target.value)}/>
+                        <span className={styles.details}>Hasło</span>
+                        <input type="password" placeholder="Wpisz swoje hasło" required onChange={event => setPassword(event.target.value)}/>
                     </div>
                 </div>
 
@@ -63,10 +63,10 @@ export const Login = () => {
                 }                   
                     } 
                     >
-                        <span>Login</span>
+                        <span>Zaloguj się</span>
                     </button>
                 </div>
-                <p>Not a member? <Link to="/registration" className={styles.signup}>Signup</Link></p>
+                <p>Nie jesteś członkiem? <Link to="/registration" className={styles.signup}>Zarejestruj się</Link></p>
             
         </div>
       </div>

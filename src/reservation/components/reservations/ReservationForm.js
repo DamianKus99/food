@@ -226,12 +226,12 @@ class ReservationForm extends Component {
       <>
 
         <form className={Styles.reservationForm} onSubmit={this.handleSubmit}>
-          <div className={Styles.title}>BOOK A TABLE</div>
+          <div className={Styles.title}>Zarezerwuj stolik</div>
           <table className={Styles.tableForm}>
             <tbody>
               <tr>
                 <th>
-                  <label htmlFor="datetime">Date & Time</label>
+                  <label htmlFor="datetime">Data & Godzina</label>
                 </th>
                 <td>
                   <input
@@ -247,7 +247,7 @@ class ReservationForm extends Component {
 
               <tr>
                 <th>
-                  <label htmlFor="duration">Duration</label>
+                  <label htmlFor="duration">Czas trwania (godziny)</label>
                 </th>
                 <td>
                   <input
@@ -259,13 +259,12 @@ class ReservationForm extends Component {
                     required
                     min="1"
                   />{" "}
-                  <label>hour(s)</label>
                 </td>
               </tr>
 
               <tr>
                 <th>
-                  <label htmlFor="party-size">Party Size</label>
+                  <label htmlFor="party-size">Ilość miejsc</label>
                 </th>
                 <td>
                   <input
@@ -301,7 +300,7 @@ class ReservationForm extends Component {
 
               <tr>
                 <th>
-                  <label htmlFor="venue-table">Table</label>
+                  <label htmlFor="venue-table">Numer stolika</label>
                 </th>
                 <td>
                   <select
@@ -311,7 +310,7 @@ class ReservationForm extends Component {
                     required
                   >
                     <option value="" disabled>
-                      Please Select
+                      Proszę o wybranie stolika
                     </option>
                     {venueTableOptions}
                   </select>

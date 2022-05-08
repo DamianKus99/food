@@ -103,40 +103,40 @@ export const AdminNavbar = () => {
             <td className={styles.adminTD}><p>{item.name}</p></td>
             <td className={styles.adminTD}><p>{item.type}</p></td>
             <td className={styles.adminTD}><p>{item.price}</p></td>
-            <td className={styles.adminTD}><p>{item.avaiable === true ? "Available" : "Not Available"}</p></td>
+            <td className={styles.adminTD}><p>{item.avaiable === true ? "Dostępne" : "Niedostępne"}</p></td>
           </tr>
         </table>
         <button className={styles.deleteBtn} onClick={() => {
           fetch('https://pr-2022-api.herokuapp.com/api/food/' + item.id, { method: 'DELETE' })
         }}>
-          <span className={styles.adminSpan}>Delete</span>
+          <span className={styles.adminSpan}>Usuń</span>
         </button>
         {isOpen && <Popup
           content={<>
             <div className={styles.editInput}>
-              <input className={styles.adminInput} placeholder="Rename dish" onChange={event => { setName(event.target.value) }}></input>
-              <input className={styles.adminInput} type="number" step="0.01" placeholder="Set new price" onChange={event => setPrice(event.target.value)}></input>
+              <input className={styles.adminInput} placeholder="Zmień nazwę" onChange={event => { setName(event.target.value) }}></input>
+              <input className={styles.adminInput} type="number" step="0.01" placeholder="Zmień cenę" onChange={event => setPrice(event.target.value)}></input>
               <select className={styles.adminInput} onChange={event => setType(event.target.value)} defaultValue={'default'}>
-                <option value="default" disabled>Choose category</option>
-                <option value="dania-glowne">Main dishes</option>
-                <option value="sniadania">Breakfasts</option>
-                <option value="zupy">Soups</option>
-                <option value="napoje">Drinks</option>
-                <option value="desery">Sweets</option>
-                <option value="salatki">Salads</option>
+                <option value="default" disabled>Wybierz kategorie</option>
+                <option value="dania-glowne">Dania główne</option>
+                <option value="sniadania">Śniadania</option>
+                <option value="zupy">Zupy</option>
+                <option value="napoje">Napoje</option>
+                <option value="desery">Desery</option>
+                <option value="salatki">Sałatki</option>
               </select>
 
               <button className={styles.addEditBtn} onClick={() => {
                 fetch('https://pr-2022-api.herokuapp.com/api/food/' + item.id + '?name=' + name + '&price=' + price + '&type=' + type, { method: 'PUT' });
 
               }}>
-                <span className={styles.adminSpan}>Change</span>
+                <span className={styles.adminSpan}>Zatwierdź zmiany</span>
               </button>
               <button className={styles.addEditBtn} onClick={() => {
                 fetch('https://pr-2022-api.herokuapp.com/api/food/' + item.id + '?yes=ojtaktak', { method: 'PUT' });
 
               }}>
-                <span className={styles.adminSpan}>Change availability</span>
+                <span className={styles.adminSpan}>Zmień dostępność</span>
               </button>
 
             </div>
@@ -154,7 +154,7 @@ export const AdminNavbar = () => {
       </div>
       <div className={styles.adminNav}>
         <button className={styles.btn} onClick={togglePopup}>
-          <span className={styles.adminSpan}>Edit</span>
+          <span className={styles.adminSpan}>Edytuj</span>
         </button>
         <button className={styles.btn} onClick={togglePopup2}>
           <span className={styles.adminSpan}>+</span>
@@ -165,24 +165,24 @@ export const AdminNavbar = () => {
         <table>
         <th>
             <td>ID</td>
-            <td>Name</td>
-            <td>Type</td>
-            <td>Price</td>
-            <td>Availability</td>
+            <td>Nazwa</td>
+            <td>Typ</td>
+            <td>Cena</td>
+            <td>Dostępność</td>
           </th>
         </table>
         {isOpen2 && <Popup
           content={<>
             <div className={styles.addEditInput}>
-              <input className={styles.adminInput} placeholder="New dish" onChange={event => setName2(event.target.value)}></input>
-              <input className={styles.adminInput} type="number" step="0.01" placeholder="Price" onChange={event => setPrice2(event.target.value)}></input>
+              <input className={styles.adminInput} placeholder="Nowe danie" onChange={event => setName2(event.target.value)}></input>
+              <input className={styles.adminInput} type="number" step="0.01" placeholder="Cena" onChange={event => setPrice2(event.target.value)}></input>
               <select className={styles.adminInput} onChange={event => setType2(event.target.value)}>
-                <option value="dania-glowne">Main dishes</option>
-                <option value="sniadania">Breakfasts</option>
-                <option value="zupy">Soups</option>
-                <option value="salatki">Salads</option>
-                <option value="desery">Sweets</option>
-                <option value="napoje">Drinks</option>
+                <option value="dania-glowne">Dania główne</option>
+                <option value="sniadania">Śniadania</option>
+                <option value="zupy">Zupy</option>
+                <option value="salatki">Sałatki</option>
+                <option value="desery">Desery</option>
+                <option value="napoje">Napoje</option>
 
               </select>
               <button className={styles.addEditBtn} onClick={() => {
@@ -207,7 +207,7 @@ export const AdminNavbar = () => {
                   type: type2,
                 }))
               }}>
-                <span className={styles.adminSpan}>Add</span>
+                <span className={styles.adminSpan}>Dodaj</span>
               </button>
             </div>
           </>}

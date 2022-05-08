@@ -16,24 +16,24 @@ const [password2, setPassword2] = useState('')
             <Navbar />
         </div>  
         <div className={styles.container}>
-            <div className={styles.title}>Registration</div>
+            <div className={styles.title}>Rejestracja</div>
             <form action="#">
                 <div className={styles.userDetails}>
                     <div className={styles.inputBox}>
                         <span className={styles.details}>Nazwisko</span>
-                        <input type="text" placeholder="Enter your user name" required onChange={event => setName(event.target.value)}/>
+                        <input type="text" placeholder="Wpisz swoje nazwisko" required onChange={event => setName(event.target.value)}/>
                     </div>
                     <div className={styles.inputBox}>
                         <span className={styles.details}>Email</span>
-                        <input type="email" placeholder="Enter your email" required onChange={event => setEmail(event.target.value)}/>
+                        <input type="email" placeholder="Wpisz swój email" required onChange={event => setEmail(event.target.value)}/>
                     </div>    
                     <div className={styles.inputBox}>
-                        <span className={styles.details}>Password</span>
-                        <input type="password" placeholder="Enter your password" required onChange={event => setPassword(event.target.value)} />
+                        <span className={styles.details}>Hasło</span>
+                        <input type="password" placeholder="Wpisz swoje hasło" required onChange={event => setPassword(event.target.value)} />
                     </div>
                     <div className={styles.inputBox}>
-                        <span className={styles.details}>Confirm Password</span>
-                        <input type="password" placeholder="Confirm your password" required onChange={event => setPassword2(event.target.value)} />
+                        <span className={styles.details}>Potwierdz hasło</span>
+                        <input type="password" placeholder="Potwierdz swoje hasło" required onChange={event => setPassword2(event.target.value)} />
                     </div>
                 </div>
 
@@ -55,10 +55,11 @@ const [password2, setPassword2] = useState('')
                         }),
 
                     } )  } 
+                        
                 
                 }
                      }>
-                        <span>Register</span>
+                        <span>Zarejestruj się</span>
                     </button>
                 </div>
             </form>

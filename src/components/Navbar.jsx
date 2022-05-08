@@ -13,7 +13,7 @@ export const Navbar = (props) => {
   return (
       <nav className={styles.nav}>
           <div className={styles.logoContainer}>
-              <span className={styles.logo}>Restaurant</span>
+              <span className={styles.logo}>Restauracja</span>
           </div>
           {/* Hamburger menu for mobile state*/}
           <div className={styles.mobileBars} onClick={ () => setNavOpen(true)}>
@@ -23,10 +23,10 @@ export const Navbar = (props) => {
             <li className={styles.mobileFaTimes} onClick={ () => setNavOpen(false)}>
                 <FaTimes />
             </li>
-            <li><Link to="/" className={styles.link}>Home</Link></li>
+            <li><Link to="/" className={styles.link}>Strona główna</Link></li>
             <li><Link to="/menu" className={styles.link}>Menu</Link></li>
-            <li><Link to="/reservation" className={styles.link}>Reservation</Link></li>
-            <li><Link to="/login" className={styles.link}>Login</Link></li>   
+            <li><Link to="/reservation" className={styles.link}>Rezerwacje</Link></li>
+            <li><Link to="/login" className={styles.link}>Logowanie</Link></li>   
             <li><Link to="#" className={styles.link}><HeaderCartButton onClick={props.onShowCart} /></Link></li>
             <li className={styles.link}>{username}</li>
             <li className={styles.link} onClick={ ()=> {ReactSession.set("username",""); window.location.reload();} }> {ReactSession.get("username")? <p className={styles.link}>Wyloguj</p>: <p></p> }</li>

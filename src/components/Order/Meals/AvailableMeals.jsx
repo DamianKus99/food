@@ -169,12 +169,12 @@ const AvailableMeals = () => {
     <section className={classes.meals}>
       <div className={classes.navTool}>
         <div className={classes.navToolButtons}>
-          <button className={classes.btnTool} onClick={() => { pressed('dania-glowne'); }}>Main dishes</button>
-          <button className={classes.btnTool} onClick={() => { pressed('sniadania'); }}>Breakfasts</button>
-          <button className={classes.btnTool} onClick={() => { pressed('zupy'); }}>Soups</button>
-          <button className={classes.btnTool} onClick={() => { pressed('salatki'); }}>Salads</button>
-          <button className={classes.btnTool} onClick={() => { pressed('desery'); }}>Sweets</button>
-          <button className={classes.btnTool} onClick={() => { pressed('napoje'); }}>Drinks</button>
+          <button className={classes.btnTool} onClick={() => { pressed('dania-glowne'); }}>Dania główne</button>
+          <button className={classes.btnTool} onClick={() => { pressed('sniadania'); }}>Śniadania</button>
+          <button className={classes.btnTool} onClick={() => { pressed('zupy'); }}>Zupy</button>
+          <button className={classes.btnTool} onClick={() => { pressed('salatki'); }}>Sałatki</button>
+          <button className={classes.btnTool} onClick={() => { pressed('desery'); }}>Desery</button>
+          <button className={classes.btnTool} onClick={() => { pressed('napoje'); }}>Napoje</button>
         </div>
         
 
@@ -185,10 +185,10 @@ const AvailableMeals = () => {
           }
           }
         >
-          <option value="name-asc">Sort by name A↓Z</option>
-          <option value="name-desc">Sort by name Z↑A</option>
-          <option value="price-asc">Sort by price A↓Z</option>
-          <option value="price-desc">Sort by price Z↑A</option>
+          <option value="name-asc">Sortuj według nazwy A↓Z</option>
+          <option value="name-desc">Sortuj według nazwy Z↑A</option>
+          <option value="price-asc">Sortuj według ceny A↓Z</option>
+          <option value="price-desc">Sortuj według ceny Z↑A</option>
         </select>
 
       </div>

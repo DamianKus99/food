@@ -91,11 +91,11 @@ const Cart = (props) => {
     <div className={classes.actions}>
       {hasItems && (
         <button className={classes.button} onClick={submitOrderHandler}>
-          Order
+          Zamów
         </button>
       )}
       <button className={classes.button} onClick={props.onClose}>
-        Close
+        Zamknij
       </button>
     </div>
   );
@@ -104,21 +104,21 @@ const Cart = (props) => {
     <React.Fragment>
       {cartItems}
       <div className={classes.total}>
-        <span>Total Amount</span>
+        <span>Całkowita kwota</span>
         <span>{totalAmount}</span>
       </div>
       {modalActions}
     </React.Fragment>
   );
 
-  const isSubmittingModalContent = <p>Sending order data...</p>;
+  const isSubmittingModalContent = <p>Wysyłanie danych zamówienia...</p>;
 
   const didSubmitModalContent = (
     <React.Fragment>
-      <p>Successfully sent the order!</p>
+      <p>Pomyślnie wysłano zamówienie!</p>
       <div className={classes.actions}>
       <button className={classes.button} onClick={props.onClose}>
-        Close
+        Zamknij
       </button>
     </div>
     </React.Fragment>

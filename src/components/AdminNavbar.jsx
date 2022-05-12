@@ -99,7 +99,6 @@ export const AdminNavbar = () => {
       <div className={styles.meal} key={index}>
         <table className={styles.adminTable}>
           <tr className={styles.adminTR}>
-            <td className={styles.adminTD}><p>{item.id}</p></td>
             <td className={styles.adminTD}><p>{item.name}</p></td>
             <td className={styles.adminTD}><p>{item.type}</p></td>
             <td className={styles.adminTD}><p>{item.price}</p></td>
@@ -164,7 +163,6 @@ export const AdminNavbar = () => {
         <div className={styles.title}>Menu</div>
         <table>
         <th>
-            <td>ID</td>
             <td>Nazwa</td>
             <td>Typ</td>
             <td>Cena</td>
@@ -176,7 +174,8 @@ export const AdminNavbar = () => {
             <div className={styles.addEditInput}>
               <input className={styles.adminInput} placeholder="Nowe danie" onChange={event => setName2(event.target.value)}></input>
               <input className={styles.adminInput} type="number" step="0.01" placeholder="Cena" onChange={event => setPrice2(event.target.value)}></input>
-              <select className={styles.adminInput} onChange={event => setType2(event.target.value)}>
+              <select className={styles.adminInput} onChange={event => setType2(event.target.value)} defaultValue={'default'}>
+              <option value="default" disabled>Wybierz kategorie</option>
                 <option value="dania-glowne">Dania główne</option>
                 <option value="sniadania">Śniadania</option>
                 <option value="zupy">Zupy</option>

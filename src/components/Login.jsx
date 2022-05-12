@@ -12,6 +12,7 @@ import { ReactSession }  from 'react-client-session';
 export const Login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [badLogin, setBadLogin] = useState('')
     const history = useHistory(); 
         var path;
         const routeChange = (arg) =>{ 
@@ -35,7 +36,7 @@ export const Login = () => {
         </div> 
         <div className={styles.container}>
             <div className={styles.title}>Logowanie</div>
-            
+            <p>Zły login i hasło</p>
                 <div className={styles.userDetails}>
                     <div className={styles.inputBox}>
                         <span className={styles.details}>Email</span>
@@ -53,8 +54,15 @@ export const Login = () => {
 
                     console.log(responseData)
                     //console.log('https://pr-2022-api.herokuapp.com/api/v1/user/log-in/?email=' + email + '&password=' + password )
-      
-                    ReactSession.set("username", responseData.email);
+                    if(!responseData.ok)
+                    {
+                        ReactSession.set("username", "");
+                        ReactSession.set("rola", ""); 
+                    }                  
+                    else {
+                        ReactSession.set("username", responseData.email);
+                        ReactSession.set("rola", responseData.appUserRole);
+                    }
                     console.log(responseData.appUserRole)
                     
                     {routeChange(responseData.appUserRole)}

@@ -23,13 +23,17 @@ export const Navbar = (props) => {
             <li className={styles.mobileFaTimes} onClick={ () => setNavOpen(false)}>
                 <FaTimes />
             </li>
-            <li><Link to="/" className={styles.link}>Strona główna</Link></li>
-            <li><Link to="/menu" className={styles.link}>Menu</Link></li>
-            <li><Link to="/reservation" className={styles.link}>Rezerwacje</Link></li>
-            <li><Link to="/login" className={styles.link}>Logowanie</Link></li>   
-            <li><Link to="#" className={styles.link}><HeaderCartButton onClick={props.onShowCart} /></Link></li>
+            <li><Link to="/" className={styles.link}>{(ReactSession.get("rola")===""||ReactSession.get("rola")==="USER")? <p className={styles.link}>Strona główna</p>: <p></p>}</Link></li>
+            <li><Link to="/menu" className={styles.link}>{(ReactSession.get("rola")===""||ReactSession.get("rola")==="USER")? <p className={styles.link}>Menu</p>: <p></p>}</Link></li>
+            
+            <li><Link to="/reservation" className={styles.link}>{(ReactSession.get("rola")===""||ReactSession.get("rola")==="USER")? <p className={styles.link}>Rezerwacje</p>: <p></p>}</Link></li>
+            <li><Link to="/login" className={styles.link}>{ReactSession.get("rola")===""? <p className={styles.link}>Logowanie</p>: <p></p>}</Link></li>   
+            <li><Link to="#" className={styles.link}>{(ReactSession.get("rola")===""||ReactSession.get("rola")==="USER")? <HeaderCartButton onClick={props.onShowCart} />: <p></p>}</Link></li>
+            <li><Link to="/admin" className={styles.link}>{ReactSession.get("rola")==="ADMIN"? <p className={styles.link}>Admin</p>: <p></p>}</Link></li>
+            <li><Link to="/kitchen" className={styles.link}>{ReactSession.get("rola")==="COOK"? <p className={styles.link}>Kucharz</p>: <p></p>}</Link></li>
+
             <li className={styles.link}>{username}</li>
-            <li className={styles.link} onClick={ ()=> {ReactSession.set("username",""); window.location.reload();} }> {ReactSession.get("username")? <p className={styles.link}>Wyloguj</p>: <p></p> }</li>
+            <li className={styles.link} onClick={ ()=> {ReactSession.set("username","");ReactSession.set("rola",""); window.location.reload();} }><Link to="/login"> {ReactSession.get("username")? <p className={styles.link}>Wyloguj</p>: <p></p> }</Link></li>
           </ul>
       </nav>
   )

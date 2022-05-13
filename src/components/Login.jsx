@@ -12,7 +12,7 @@ import { ReactSession }  from 'react-client-session';
 export const Login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [badLogin, setBadLogin] = useState('')
+    const [badLogin, setBadLogin] = useState(false)
     const history = useHistory(); 
         var path;
         const routeChange = (arg) =>{ 
@@ -27,7 +27,12 @@ export const Login = () => {
           }
           history.push(path);
         }
-
+        const togglePopup = () => {
+            setBadLogin(false);
+          }
+          const togglePopup2 = () => {
+            setBadLogin(true);
+          }
           
   return (
       <div className={styles.login}>
@@ -36,7 +41,7 @@ export const Login = () => {
         </div> 
         <div className={styles.container}>
             <div className={styles.title}>Logowanie</div>
-            <p>Zły login i hasło</p>
+            {badLogin && <p className={styles.loginError}>Zły login i hasło</p>}
                 <div className={styles.userDetails}>
                     <div className={styles.inputBox}>
                         <span className={styles.details}>Email</span>
@@ -54,14 +59,23 @@ export const Login = () => {
 
                     console.log(responseData)
                     //console.log('https://pr-2022-api.herokuapp.com/api/v1/user/log-in/?email=' + email + '&password=' + password )
-                    if(!responseData.ok)
+                    if(!response.ok)
                     {
                         ReactSession.set("username", "");
                         ReactSession.set("rola", ""); 
+                       
+                        console.log("NIE OK")
+                        
+                       togglePopup2()                        
+                        
                     }                  
                     else {
                         ReactSession.set("username", responseData.email);
                         ReactSession.set("rola", responseData.appUserRole);
+                        togglePopup();
+
+                        console.log("OK")
+                        
                     }
                     console.log(responseData.appUserRole)
                     

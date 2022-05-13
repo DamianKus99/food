@@ -14,12 +14,14 @@ import styles from './styles/Order.module/Layout.module/Header.module.scss';
 import axios from "axios";
 import AppContainer from "./reservation/containers/AppContainer";
 import AdminNavbar from "./components/AdminNavbar";
+import { ReactSession }  from 'react-client-session';
 
 
 
 function App() {
 	const [cartIsShown, setCartIsShown] = useState(false);
-
+	ReactSession.set("rola","")
+	ReactSession.set("username","")
 	const showCartHandler = () => {
 		setCartIsShown(true);
 	};

@@ -20,8 +20,8 @@ import { ReactSession }  from 'react-client-session';
 
 function App() {
 	const [cartIsShown, setCartIsShown] = useState(false);
-	ReactSession.set("rola","")
-	ReactSession.set("username","")
+	//ReactSession.set("rola","")
+	//ReactSession.set("username","")
 	const showCartHandler = () => {
 		setCartIsShown(true);
 	};

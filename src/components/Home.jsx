@@ -21,8 +21,7 @@ export const Home = () => {
       </div>
 
       <div className={styles.slogan}>
-        <h1>{`This Is The Place To Name Your Restaurant`}</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+        <p>BOGATE SMAKI I NIEPOWTARZALNE WNĘTRZE. KELNERJO TO COŚ WIĘCEJ NIŻ JEDZENIE, TO STYL BYCIA. POSZUKAJ TEGO JEDYNEGO ...</p>
       </div>
     </div>
   )

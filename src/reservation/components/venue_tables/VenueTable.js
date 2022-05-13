@@ -11,8 +11,8 @@ const VenueTable = ({ venueTable, availableTables }) => {
 
   return (
     <div className={"venue-table" + checkAvailable()}>
-      <p id="table-number">{`Table ${venueTable.id}`}</p>
-      <p id="covers">{`Seats ${venueTable.covers}`}</p>
+      <p id="table-number">{`Stolik ${venueTable.id}`}</p>
+      <p id="covers">{`Miejsc ${venueTable.covers}`}</p>
     </div>
   );
 };

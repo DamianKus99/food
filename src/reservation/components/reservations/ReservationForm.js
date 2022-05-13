@@ -217,7 +217,7 @@ class ReservationForm extends Component {
     const venueTableOptions = this.state.availableTables.map((venueTable) => {
       return (
         <option key={venueTable.id} value={venueTable.id}>
-          {`Table ${venueTable.id}: Seats ${venueTable.covers}`}
+          {`Stolik ${venueTable.id}: Miejsc ${venueTable.covers}`}
         </option>
       );
     });

@@ -96,6 +96,10 @@
             fill: black;
         }
     }
+
+    @media screen and (max-width: 1500px){
+        width: 95%;
+    } 
 }
 
 .EditSelect{
@@ -181,6 +185,44 @@
         }
     }
 }
+
+@media screen and (max-width: 900px){
+    .adminTable{
+        width: 100%;
+    }
+
+    .adminTR, .adminTD {
+        display: block;
+         margin-left: 0;
+         margin-bottom: 0.7rem;
+        width: 100%;   
+    }
+
+    .btn {
+        display: block;  
+        width: 90%;
+    }
+
+    .addEditBtn {
+        display: block;  
+        width: 100%;
+    }
+
+    .meal {
+        display: block;
+    }
+
+    .adminInput {
+        display: block;
+        width: 100%;
+    }
+
+    .deleteBtn{
+        display: block;  
+        width: 100%;
+    }
+}
+
 
 @media screen and (max-width: 768px){
     .adminTable{

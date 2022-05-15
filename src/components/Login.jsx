@@ -10,8 +10,8 @@ import { ReactSession }  from 'react-client-session';
 
 
 export const Login = () => {
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+    const [email, setEmail] = useState()
+    const [password, setPassword] = useState()
     const [badLogin, setBadLogin] = useState(false)
     const history = useHistory(); 
         var path;
@@ -45,22 +45,28 @@ export const Login = () => {
                 <div className={styles.userDetails}>
                     <div className={styles.inputBox}>
                         <span className={styles.details}>Email</span>
-                        <input type="email" placeholder="Wpisz swój email" required onChange={event => setEmail(event.target.value)}/>
+                        <input type="email" placeholder="Wpisz swój email" required value={email} onChange={event => setEmail(event.target.value)} 
+                        />
                     </div>
                     <div className={styles.inputBox}>
                         <span className={styles.details}>Hasło</span>
-                        <input type="password" placeholder="Wpisz swoje hasło" required onChange={event => setPassword(event.target.value)}/>
+                        <input type="password" placeholder="Wpisz swoje hasło" required value={password} onChange={event => setPassword(event.target.value)}
+                        />
                     </div>
                 </div>
 
                 <div className={styles.btn}>
                     <button onClick={ async () => { const response = await fetch('https://pr-2022-api.herokuapp.com/api/v1/user/log-in/?email=' + email + '&password=' + password ,)
                     const responseData = await response.json();
-
+                   
+                    
                     console.log(responseData)
                     //console.log('https://pr-2022-api.herokuapp.com/api/v1/user/log-in/?email=' + email + '&password=' + password )
                     if(!response.ok)
                     {
+
+                        setEmail(()=>'')
+                        setPassword(()=>'')
                         ReactSession.set("username", "");
                         ReactSession.set("rola", ""); 
                        
@@ -82,7 +88,7 @@ export const Login = () => {
                     {routeChange(responseData.appUserRole)}
                     
                 
-                }                   
+                }                  
                     } 
                     >
                         <span>Zaloguj się</span>

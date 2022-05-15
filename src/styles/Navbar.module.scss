@@ -7,11 +7,15 @@
     .logo{
         font-family: "Architects Daughter", cursive;
         font-size: 2.4rem;
+        margin-left: 8.5rem;
         color: var(--color-btn);
         cursor: pointer;
         transform: color ease-in-out 300ms;
         &:hover{
             color: var(--color-text);
+        }
+        @media screen and (max-width: 900px){
+            margin-left: 1rem;
         }
     }
 }
@@ -22,11 +26,10 @@
     justify-content: flex-end;
     gap: 1.2rem;
     width: max-content;
-    //background: #2c28224b;
     margin-left: auto;
     padding: 0rem 4rem;
     
-    @media screen and (max-width: 768px){
+    @media screen and (max-width: 900px){
         position: fixed;
         flex-direction: column;
         align-items: flex-end;
@@ -42,7 +45,7 @@
     }
 }
 
-.link{
+.link p{
     font-family: "Architects Daughter", cursive;
     font-size: 1.1rem;
     font-weight: 500;
@@ -52,18 +55,32 @@
     &:hover{
         color: var(--color-text);
     }
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 900px) {
         &:first-child{
-            margin-top: 2rem;
+            margin-top: 0.1rem;
         }
-        padding: 0.5rem 2rem;
+        padding: 0.1rem 2rem;
+    }
+}
+
+.link2{
+    font-family: "Architects Daughter", cursive;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: whitesmoke;
+    cursor: not-allowed;
+    @media screen and (max-width: 900px) {
+        &:first-child{
+            margin-top: 0.1rem;
+        }
+        padding: 0.1rem 2rem;
     }
 }
 
 .mobileFaTimes, .mobileBars{
     cursor: pointer;
     display: none;
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 900px) {
         display: flex;
         align-items: center;
         svg{
@@ -84,7 +101,7 @@
 }
 
 .menuMobileActive{
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 900px) {
         transform: translateX(0);
     }
 }

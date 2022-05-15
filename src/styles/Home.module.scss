@@ -53,14 +53,17 @@
     max-width: 650px;
     @media screen and (max-width: 768px) {
         max-width: 85vw;
+        img{
+            width: 50%;
+            height: 70%;
+        }
     }
     @media screen and (max-width: 480px) {
         max-width: unset;
-    }
-    h1{
-        margin-bottom: 1.5rem;
-        font-size: 3rem;
-        color: whitesmoke;
+        img{
+            width: 50%;
+            height: 70%;
+        }
     }
     p{
         font-size: 1rem;

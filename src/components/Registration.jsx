@@ -1,7 +1,6 @@
 import styles from '../styles/Registration.module.scss';
 import Navbar from './Navbar';
 import { useEffect, useState } from 'react';
-import { Redirect } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
 
 
@@ -13,6 +12,7 @@ const [email, setEmail] = useState('')
 const [password, setPassword] = useState('')
 const [password2, setPassword2] = useState('')
 const history = useHistory();
+const [badLogin, setBadLogin] = useState(false)
   return (
     <div className={styles.login}>
         <div className={styles.nav}>
@@ -20,23 +20,28 @@ const history = useHistory();
         </div>  
         <div className={styles.container}>
             <div className={styles.title}>Rejestracja</div>
+            
             <form action="#">
                 <div className={styles.userDetails}>
                     <div className={styles.inputBox}>
                         <span className={styles.details}>Nazwisko</span>
-                        <input type="text" placeholder="Wpisz swoje nazwisko" required onChange={event => setName(event.target.value)}/>
+                        <input type="text" placeholder="Wpisz swoje nazwisko" required value={name} onChange={event => setName(event.target.value)}
+                        />
                     </div>
                     <div className={styles.inputBox}>
                         <span className={styles.details}>Email</span>
-                        <input type="email" placeholder="Wpisz swój email" required onChange={event => setEmail(event.target.value)}/>
+                        <input type="email" placeholder="Wpisz swój email" required value={email} onChange={event => setEmail(event.target.value)}
+                        />
                     </div>    
                     <div className={styles.inputBox}>
                         <span className={styles.details}>Hasło</span>
-                        <input type="password" placeholder="Wpisz swoje hasło" required onChange={event => setPassword(event.target.value)} />
+                        <input type="password" placeholder="Wpisz swoje hasło" required value={password} onChange={event => setPassword(event.target.value)}
+                         />
                     </div>
                     <div className={styles.inputBox}>
                         <span className={styles.details}>Potwierdz hasło</span>
-                        <input type="password" placeholder="Potwierdz swoje hasło" required onChange={event => setPassword2(event.target.value)} />
+                        <input type="password" placeholder="Potwierdz swoje hasło" required value={password2} onChange={event => setPassword2(event.target.value)} 
+                        />
                     </div>
                 </div>
 
@@ -59,12 +64,20 @@ const history = useHistory();
 
                     } ) 
                     
+                    
                     history.push("/login")
-                    } 
+                } 
+                else{
+                    setEmail("")
+                    setPassword("")
+                    setPassword2("")
+                    setName("")
 
+                }
                         
                 
                 }
+
                      }>
                         <span>Zarejestruj się</span>
                     </button>

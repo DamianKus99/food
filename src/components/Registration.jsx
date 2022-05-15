@@ -1,6 +1,8 @@
 import styles from '../styles/Registration.module.scss';
 import Navbar from './Navbar';
 import { useEffect, useState } from 'react';
+import { Redirect } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
 
 
@@ -10,6 +12,7 @@ const [name, setName] = useState('')
 const [email, setEmail] = useState('')
 const [password, setPassword] = useState('')
 const [password2, setPassword2] = useState('')
+const history = useHistory();
   return (
     <div className={styles.login}>
         <div className={styles.nav}>
@@ -54,7 +57,11 @@ const [password2, setPassword2] = useState('')
                           
                         }),
 
-                    } )  } 
+                    } ) 
+                    
+                    history.push("/login")
+                    } 
+
                         
                 
                 }

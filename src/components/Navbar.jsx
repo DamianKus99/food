@@ -24,9 +24,9 @@ export const Navbar = (props) => {
                 <FaTimes />
             </li>
             <li><Link to="/" className={styles.link}>{(ReactSession.get("rola")==="COOK")? null : <p className={styles.link}>Strona główna</p>}</Link></li>
-            <li><Link to="/menu" className={styles.link}>{(ReactSession.get("rola")==="COOK")? null :<p className={styles.link}>Menu</p>}</Link></li> 
-            <li><Link to="/reservation" className={styles.link}>{(ReactSession.get("rola")==="COOK")? null :<p className={styles.link}>Rezerwacje</p>}</Link></li>
-            <li><Link to="/login" className={styles.link}>{ReactSession.get("rola")===""? <p className={styles.link}>Logowanie</p>: null}</Link></li>   
+            <li><Link to="/menu" className={styles.link}>{(ReactSession.get("rola")==="COOK")? null : <p className={styles.link}>Menu</p>}</Link></li> 
+            <li><Link to="/reservation" className={styles.link}>{(ReactSession.get("rola")==="COOK")? null : <p className={styles.link}>Rezerwacje</p>}</Link></li>
+            <li><Link to="/login" className={styles.link}>{(ReactSession.get("rola")==="COOK" || ReactSession.get("rola")==="ADMIN" || ReactSession.get("rola")==="USER" ) ?  null: <p className={styles.link}>Logowanie</p>}</Link></li>   
             <li><Link to="#" className={styles.link}>{ReactSession.get("rola")==="COOK"?  null :  <HeaderCartButton onClick={props.onShowCart}/> }</Link></li>
             <li><Link to="/admin" className={styles.link}>{ReactSession.get("rola")==="ADMIN"? <p className={styles.link}>Admin</p>: null}</Link></li>
             <li><Link to="/kitchen" className={styles.link}>{ReactSession.get("rola")==="COOK"? <p className={styles.link}>Kucharz</p>: null}</Link></li>

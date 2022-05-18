@@ -69,7 +69,7 @@ export const Login = () => {
                         setPassword(()=>'')
                         ReactSession.set("username", "");
                         ReactSession.set("rola", ""); 
-                       
+                        ReactSession.set("zalogowany","nie");
                         console.log("NIE OK")
                         
                        togglePopup2()                        

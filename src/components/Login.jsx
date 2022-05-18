@@ -78,6 +78,7 @@ export const Login = () => {
                     else {
                         ReactSession.set("username", responseData.email);
                         ReactSession.set("rola", responseData.appUserRole);
+                        ReactSession.set("zalogowany","tak");
                         togglePopup();
 
                         console.log("OK")
